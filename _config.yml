@@ -34,9 +34,9 @@ defaults:
         url: "/" # your profile page file
         email: "name@hosting.email" # real email
       avatar:
-        path: "/jekyll-theme-mastodon/assets/avatar.png" # primary avatar
+        path: "/assets/avatar.png" # primary avatar
         circle: false # is the avatar a circle?
-      banner: "/jekyll-theme-mastodon/assets/banner.png" # background banner
+      banner: "/assets/banner.png" # background banner
       role: Custom Role
 
 # Files
