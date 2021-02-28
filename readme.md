@@ -34,6 +34,16 @@ plugins:
 This theme uses page front matter to source variables instead of `_config.yml`. This is so that you can create multiple profile pages. If you only want a single profile, the good thing here is that you can specify default values for each page's front matter via the `defaults` key.  
 **Important!!** When inputting URLs, NEVER prefix them with the baseurl / project prefix unless it won't work otherwise.
 
+### Project Sites
+If you decided that you wouldn't name your repository `<username>.github.io` and instead `social` or `mastodon`, for example, please add these two values to your `_config.yml` file:
+
+```yml
+url: "<username.github.io/<YOUR REPO NAME>"
+baseurl: "/<YOUR REPO NAME>" # `social` or `mastodon`, for example
+```
+
+For both values, ensure there isn't a slash at the end of the variable. These two values are needed because of certain pages, such as `sitemap.xml`, requiring a full `url`. For user sites, it's not a good idea to use `{{ url }}{{ baseurl }}`. And I didn't make `sitemap.xml`, it was open source on the Jekyll Codex.
+
 ### One-Profile
 If this isn't a enterprise-owned website or you only want a single Mastodon profile, then set `index.md`'s front matter (page-specific config values) like this:
 
