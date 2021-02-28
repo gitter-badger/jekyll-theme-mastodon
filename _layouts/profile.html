@@ -55,19 +55,17 @@ layout: default
 							<div class="status status-public">
 								<div class=status__info>
 									<div class="p-author h-card">
-										<a class="status__display-name u-url" rel="noopener noreferrer" href=https://mastodon.online/@ethanmcbloxxer>
-											<div class=status__avatar>
-												<div>
-													<img alt class="u-photo account__avatar" src="{{ page.avatar.path }}">
-												</div>
+										<div class=status__avatar>
+											<div>
+												<img alt class="u-photo account__avatar" src="{{ page.avatar.path }}">
 											</div>
-											<span class=display-name>
-												<bdi>
-													<strong class="display-name__html p-name">{{ page.author.name }}</strong>
-												</bdi>
-												<span class=display-name__account>@{{ page.author.handle }}@{{ site.host }}</span>
-											</span>
-										</a>
+										</div>
+										<span class=display-name>
+											<bdi>
+												<strong class="display-name__html p-name">{{ page.author.name }}</strong>
+											</bdi>
+											<span class=display-name__account>@{{ page.author.handle }}@{{ site.host }}</span>
+										</span>
 									</div>
 								</div>
 								<div class="status__content">
@@ -94,7 +92,7 @@ layout: default
 						<div class="entry h-entry">
 							<div class="status status-public">
 								<div class=status__info>
-									<a class="status__relative-time u-url u-uid" rel="noopener noreferrer" href="{{ post.url }}">
+									<a class="status__relative-time u-url u-uid" rel="noopener noreferrer" href="{{ post.url | relative_url }}">
 										<time class=time-ago datetime="{{ post.date | date_to_xmlschema }}" title="{{ post.date | date: '%B %-d, %Y'}}">{{ post.date | date: '%b %-d, %Y'}}</time>
 									</a>
 									<data class=dt-published value=2021-02-23T18:57:11+00:00></data>
@@ -106,7 +104,7 @@ layout: default
 												</div>
 											</div>
 											<span class=display-name>
-												<a href="{{ post.url }}" style="text-decoration: none;">
+												<a href="{{ post.url | relative_url }}" style="text-decoration: none;">
 													<bdi>
 														<strong class="display-name__html p-name">{{ page.author.name }}</strong>
 													</bdi>
@@ -143,8 +141,8 @@ layout: default
 									</div>
 								</div>
 								<div class=status__action-bar>
-									<a class="status__action-bar-button icon-button modal-button" href="{{ post.url | append: '#comments' }}" title="Reply" aria-label="Reply"><i class="fa fa-reply fa-fw"></i></a>
-									<a class="status__action-bar-button icon-button modal-button" href="{{ post.url }}" title="Permanent Link" aria-label="Bookmark"><i class="fa fa-bookmark fa-fw"></i></a>
+									<a class="status__action-bar-button icon-button modal-button" href="{{ post.url | append: '#comments' | relative_url }}" title="Reply" aria-label="Reply"><i class="fa fa-reply fa-fw"></i></a>
+									<a class="status__action-bar-button icon-button modal-button" href="{{ post.url | relative_url }}" title="Permanent Link" aria-label="Bookmark"><i class="fa fa-bookmark fa-fw"></i></a>
 								</div>
 							</div>
 						</div>
