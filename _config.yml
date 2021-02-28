@@ -1,4 +1,6 @@
 # Don't use tabs unless they become spaces!
+url: "https://ethanmcbloxxer.github.io/jekyll-theme-mastodo/"
+baseurl: "/jekyll-theme-mastodon"
 
 defaults:
   - # set each file in _posts to a post
