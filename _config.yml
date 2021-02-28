@@ -32,9 +32,9 @@ defaults:
         url: "/" # your profile page file
         email: "name@hosting.email" # real email
       avatar:
-        path: "/assets/avatar.png" # primary avatar
+        path: "/jekyll-theme-mastodon/assets/avatar.png" # primary avatar
         circle: false # is the avatar a circle?
-      banner: "/assets/banner.png" # background banner
+      banner: "/jekyll-theme-mastodon/assets/banner.png" # background banner
       role: Custom Role
 
 # Files
@@ -50,5 +50,3 @@ plugins:
 
 # Jekyll Settings
 locale: "en-us" # find your locale with `navigator.language` in the console
-exclude:
-  - readme.md
