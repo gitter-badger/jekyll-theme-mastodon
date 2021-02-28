@@ -31,7 +31,8 @@ plugins:
 ```
 
 ## Configuring
-This theme uses page front matter to source variables instead of `_config.yml`. This is so that you can create multiple profile pages. If you only want a single profile, the good thing here is that you can specify default values for each page's front matter via the `defaults` key.
+This theme uses page front matter to source variables instead of `_config.yml`. This is so that you can create multiple profile pages. If you only want a single profile, the good thing here is that you can specify default values for each page's front matter via the `defaults` key.  
+**Important!!** When inputting URLs, NEVER prefix them with the baseurl / project prefix unless it won't work otherwise.
 
 ### One-Profile
 If this isn't a enterprise-owned website or you only want a single Mastodon profile, then set `index.md`'s front matter (page-specific config values) like this:
@@ -132,7 +133,7 @@ Front matter required:
 
 ```yml
 ---
-media: "/assets/media/ethans-logo.png" # this must be an absolute url with your baseurl precluded
+media: "/assets/media/ethans-logo.png"
 ---
 ```
 
