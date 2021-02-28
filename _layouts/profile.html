@@ -5,11 +5,11 @@ layout: default
 <div class=container>
 	<div class=public-account-header>
 		<div class=public-account-header__image {% if site.banner == nil %} style="background-color: #191b22;" {% endif %}>
-			{% if page.banner %}<img class=parallax src="{{ page.banner }}" alt="Header Image">{% endif %}
+			{% if page.banner %}<img class=parallax src="{{ page.banner | relative_url }}" alt="Header Image">{% endif %}
 		</div>
 		<div class=public-account-header__bar>
 			<div class=avatar>
-				<img id=profile_page_avatar src='{{ page.avatar.path }}' alt="Avatar Image">
+				<img id=profile_page_avatar src='{{ page.avatar.path | relative_url }}' alt="Avatar Image">
 			</div>
 			<div class=public-account-header__tabs>
 				<div class=public-account-header__tabs__name>
@@ -57,14 +57,14 @@ layout: default
 									<div class="p-author h-card">
 										<div class=status__avatar>
 											<div>
-												<img alt class="u-photo account__avatar" src="{{ page.avatar.path }}">
+												<img alt class="u-photo account__avatar" src="{{ page.avatar.path | relative_url }}">
 											</div>
 										</div>
 										<span class=display-name>
 											<bdi>
 												<strong class="display-name__html p-name">{{ page.author.name }}</strong>
 											</bdi>
-											<span class=display-name__account>@{{ page.author.handle }}@{{ site.host }}</span>
+											<span class=display-name__account style="color: #606984">@{{ page.author.handle }}@{{ site.host }}</span>
 										</span>
 									</div>
 								</div>
@@ -100,7 +100,7 @@ layout: default
 										<span class="status__display-name u-url">
 											<div class=status__avatar>
 												<div>
-													<img alt class="u-photo account__avatar" src="{{ page.avatar.path }}">
+													<img alt class="u-photo account__avatar" src="{{ page.avatar.path | relative_url }}">
 												</div>
 											</div>
 											<span class=display-name>
