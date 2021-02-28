@@ -1,0 +1,34 @@
+---
+---
+
+// https://github.com/tootsuite/mastodon/tree/main/app/javascript/styles/mastodon
+
+@import "mixins";
+@import "variables";
+
+@import 'font-roboto';
+@import 'font-robotomono';
+@import 'font-montserrat';
+
+@import 'reset';
+@import 'basics';
+@import 'containers';
+{% if page.avatar.circle == false %}.avatar {img {border-radius: 8% !important;}}{% endif %}
+@import 'lists';
+@import 'footer';
+@import 'compact_header';
+@import 'widgets';
+@import 'forms';
+@import 'components';
+@import 'accounts';
+@import 'statuses';
+@import 'boost';
+@import 'polls';
+@import 'introduction';
+@import 'modal';
+@import 'highlights';
+@import 'about';
+@import 'tables';
+@import 'admin';
+@import 'dashboard';
+@import 'rtl';

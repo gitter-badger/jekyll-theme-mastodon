@@ -1,0 +1,32 @@
+---
+layout: page
+---
+
+<h1>Hastag Index</h1>
+
+{% assign date_format = "%b %-d, %Y" %}
+
+{%- capture site_tags -%}
+    {%- for tag in site.tags -%}
+        {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+{%- endcapture -%}
+{%- assign tags_list = site_tags | split:',' | sort -%}
+
+<div id="full-tags-list">
+{%- for tag in tags_list -%}
+    <h2 id="{{- tag -}}" class="linked-section" style="margin: 0">
+        <i class="fas fa-tag" aria-hidden="true" style="font-size: 0.65em;"></i>
+        &nbsp;{{- tag -}}&nbsp;({{site.tags[tag].size}})
+    </h2>
+    <div class="post-list">
+        {%- for post in site.tags[tag] -%}
+            <div class="tag-entry">
+                <a href="{{ post.url | relative_url }}">{{- post.title -}}</a>
+                <div class="entry-date">
+                    <time datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: date_format -}}</time>
+                </div>
+            </div>
+        {%- endfor -%}
+    </div>
+{%- endfor -%}

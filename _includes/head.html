@@ -1,0 +1,41 @@
+<head>
+	<meta charset="UTF-8" />
+	<title>{% if page %}{{ page.title }}{% endif %}{% if site.title and page %} | {% endif %}{% if site.title %}{{ site.title }}{% endif %}</title>
+	<meta name="generator" content="Jekyll v{{ jekyll.version }}" />
+	<meta property="og:title" content="{{ page.title | smartify }}" />
+	<meta name="author" content="{{ page.author.name | smartify }}" />
+	<meta property="og:locale" content="{{ site.locale }}" />
+	<meta name="description" content="{{ page.description | smartify }}" />
+	<meta property="og:description" content="{{ page.description | smartify }}" />
+	<meta property="og:site_name" content="{{ page.title }}" />
+	<meta property="twitter:title" content="{{ page.title }}" />
+	<script type="application/ld+json">
+		{
+			"author":
+			{
+				"@type": "Person",
+				"name": "{{ page.author.name | smartify }}"
+			},
+			"headline": "{{ page.title | smartify }}",
+			"@type": "WebSite",
+			"description": "{{ page.description }}",
+			"url": "/",
+			"name": "{{ page.title }}",
+			"@context": "https://schema.org"
+		}
+	</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
+	<meta name="theme-color" content="#157878">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="preload" href="{{ /assets/fonts/roboto/roboto-regular-webfont.woff2 | relative_url }}" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="{{ /assets/fonts/roboto/roboto-medium-webfont.woff2 | relative_url }}" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="{{ /assets/fonts/robotomono/robotomono-regular-webfont.woff2 | relative_url }}" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="{{ /assets/fonts/montserrat/Montserrat-Regular.woff2 | relative_url }}" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="{{ /assets/fonts/montserrat/Montserrat-Medium.ttf | relative_url }}" as="font" type="font/ttf" crossorigin>
+	<link rel="stylesheet" href="{{ '/assets/mastodon.css' | relative_url }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+
+	{% if site.manifest %}<link rel="manifest" href="{{ site.manifest | relative_url }}" />{% endif %}
+	{% if site.browserconfig %}<meta name="msapplication-config" content="{{ site.browserconfig | relative_url }}"/>{% endif %}
+</head>

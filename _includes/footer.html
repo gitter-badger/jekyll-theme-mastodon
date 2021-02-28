@@ -1,0 +1,28 @@
+<div class=container>
+	<div class=footer>
+		<div class=grid>
+			<div class=column-1 style="grid-row: 1;">
+				<h4>{{ site.host }}</h4>
+				<ul>
+					<li><a href="{{ '/about/' | relative_url }}">About</a></li>
+					<li>v3.3.0</li>
+				</ul>
+			</div>
+			<div class=column-2>
+				<h4><a href="https://github.com/EthanMcBloxxer/jekyll-theme-mastodon">mastodon-theme-jekyll</a></h4>
+				<a class=brand href="{{ '/' | relative_url }}" aria-label="Return to homepage">
+					<svg viewBox="0 0 216.4144 232.00976">
+						<use xlink:href=#mastodon-svg-logo></use>
+					</svg>
+				</a>
+			</div>
+			<div class=column-3>
+				<h4>More…</h4>
+				<ul>
+					<li><a href="{% if site.github %}{{ site.github.repository_url }}{% else %}https://github.com/EthanMcBloxxer/jekyll-theme-mastodon/{% endif %}">Source code</a></li>
+					<li><a href=https://joinmastodon.org/>Mastodon</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

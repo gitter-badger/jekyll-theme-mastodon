@@ -1,0 +1,15 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.locale | default: 'en' }}">
+	{% include head.html %}
+	<body class="with-modals theme-default no-reduce-motion">
+		<div class=public-layout>
+			{% include header.html %}
+			{{ content }}
+			{% include footer.html %}
+		</div>
+		{% include resources.html %}
+	</body>
+</html>

@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<div class="container">
+	<div class="activity-stream h-entry">
+		<div class="entry entry-center">
+			<div class="detailed-status detailed-status--flex detailed-status-public">
+				<div class="p-author h-card">
+					<span class="detailed-status__display-name u-url" rel="noopener">
+						<div class="detailed-status__display-avatar">
+							<img alt="Avatar Icon" class="account__avatar u-photo" src="{{ page.avatar.path }}" title="" style="">
+						</div>
+						<span class="display-name">
+							<bdi>
+								<a href="{{ page.author.url | relative_url }}" style="text-decoration: none;">
+									<strong class="display-name__html">{{ page.author.name }}</strong>
+								</a>
+							</bdi>
+							<span class="display-name__account">@{{ page.author.handle }}@{{ site.host }}</span>
+						</span>
+					</span>
+				</div>
+				<div class="status__content">
+					{{ content }}
+					{% for tag in page.tags %}
+						<span style="color: #9baec8">#{{ tag }}</span>
+					{% endfor %}
+				</div>
+				{% if page.media %}
+				<div data-component="MediaGallery">
+					<div class="media-gallery" style="height: 30rem;">
+						<div class="media-gallery__item standalone" style="inset: auto; width: 100%; height: 100%;">
+							<canvas class="media-gallery__preview media-gallery__preview--hidden" width="32" height="32"></canvas>
+							<a class="media-gallery__item-thumbnail" href="{{ page.media }}" target="_blank" rel="noopener noreferrer">
+								<img src="{{ page.media }}" style="object-position: 50% 50%;">
+							</a>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				<div class="detailed-status__meta">
+					<a class="detailed-status__link u-url u-uid" rel="noopener noreferrer" href="{{ '/' | relative_url }}">back to home</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if site.amplitude %}
+		{% assign key = site.amplitude %}
+		{% include analytics.html key=key %}
+		<script type="text/javascript">
+			amplitude.getInstance().logEvent("Post Click", {title: "{{ page.title }}"{% if page.tags %}, tag: "{{ page.tags[0] }}"{% endif %}});
+		</script>
+		{% assign key = nil %}
+	{% endif %}
+</div>

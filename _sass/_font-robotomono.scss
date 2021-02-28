@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'mastodon-font-monospace';
+  src: local('Roboto Mono'),
+    url('../assets/fonts/robotomono/robotomono-regular-webfont.woff2') format('woff2'),
+    url('../assets/fonts/robotomono/robotomono-regular-webfont.woff') format('woff'),
+    url('../assets/fonts/robotomono/robotomono-regular-webfont.ttf') format('truetype'),
+    url('../assets/fonts/robotomono/robotomono-regular-webfont.svg#roboto_monoregular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,31 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.locale | default: 'en' }}">
+	{% include head.html %}
+	<body class="error">
+		<div style="vertical-align: middle; margin: 20px;">
+			{% if page.img %}
+			<div class="dialog__illustration">
+				{% assign img = page.img %}
+				<img alt="Error Image" src="{{ img | relative_url }}">
+				{% assign img = nil %}
+			</div>
+			{% endif %}
+			<div class="dialog__message">
+				<h1 style="font-size: 5rem; margin-bottom: 2rem;">{{ page.code | default: "Error" }}</h1>
+				<p style="font-size: 1.5rem; margin-bottom: 1rem;">{{ page.caption | default: "An unspecified error occured." }}</p>
+				<a href="{{ '/' | relative_url }}" style="color: #9baec8; font-size: 1rem;">return to /</a>
+			</div>
+		</div>
+		{% if site.amplitude %}
+			{% assign key = site.amplitude %}
+			{% include analytics.html key=key %}
+			<script type="text/javascript">
+				amplitude.getInstance().logEvent("Error", {code: "{{ page.code }}"});
+			</script>
+			{% assign key = nil %}
+		{% endif %}
+	</body>
+</html>

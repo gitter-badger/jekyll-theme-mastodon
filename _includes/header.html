@@ -1,0 +1,18 @@
+<div class=container>
+	<nav class=header>
+		<div class=nav-left>
+			<a class=brand href="{{ '/' | relative_url }}" aria-label="Return to homepage">
+				<svg viewBox="0 0 713.35878 175.8678">
+					<use xlink:href=#mastodon-svg-logo-full></use>
+				</svg>
+			</a>
+			<a class="nav-link optional" href="{{ '/about/' | relative_url }}">About</a>
+			<a class="nav-link optional" href="mailto:{% if page %}{{ page.author.email }}{% elsif post %}{{ post.author.email }}{% endif %}">Contact</a>
+			<a class="nav-link optional" href="{{ '/sitemap.xml' | relative_url }}">Sitemap</a>
+		</div>
+		<div class=nav-center></div>
+		<div class=nav-right>
+			<a class="webapp-btn nav-link nav-button" href=https://github.com/EthanMcBloxxer/jekyll-theme-mastodon/>Create Profile</a>
+		</div>
+	</nav>
+</div>

@@ -1,0 +1,208 @@
+---
+layout: default
+---
+
+<div class=container>
+	<div class=public-account-header>
+		<div class=public-account-header__image {% if site.banner == nil %} style="background-color: #191b22;" {% endif %}>
+			{% if page.banner %}<img class=parallax src="{{ page.banner }}" alt="Header Image">{% endif %}
+		</div>
+		<div class=public-account-header__bar>
+			<div class=avatar>
+				<img id=profile_page_avatar src='{{ page.avatar.path }}' alt="Avatar Image">
+			</div>
+			<div class=public-account-header__tabs>
+				<div class=public-account-header__tabs__name>
+					<h1>
+						{{ page.author.name }}
+						<small>
+						@{{ page.author.handle }}@{{ site.host }}
+						</small>
+					</h1>
+				</div>
+				<div class=public-account-header__tabs__tabs>
+					<div class=details-counters>
+						<div class="counter active">
+							<span class="u-url u-uid">
+								<span class=counter-number>{%- for post in site.posts -%}{% if post.author.handle == page.author.handle %}{% assign var = var | plus: 1 %}{% endif %}{%- endfor -%}{{ var | default: "0" }}</span>
+								<span class=counter-label>Toots</span>
+							</span>
+						</div>
+					</div>
+					<div class=spacer></div>
+					<div class=public-account-header__tabs__tabs__buttons>
+						<a class="button logo-button modal-button" target=_new href="{{ '/feed.xml' | relative_url }}">Subscribe to RSS</a>
+					</div>
+				</div>
+			</div>
+			<div class="public-account-header__extra sf-hidden"></div>
+		</div>
+	</div>
+	<div class=grid>
+		<div class=column-0>
+			<div class=h-feed>
+				<data class=p-name value="ethanmcbloxxer on mastodon.online">
+					<div class="activity-stream activity-stream--under-tabs">
+						{% assign pinnedcontent = content | strip %}
+						{% if pinnedcontent != "" %}
+						<div class="entry h-entry">
+							<div class="status__prepend" style="margin-left: 50px;">
+								<div class="status__prepend-icon-wrapper">
+									<i class="fa fa-thumbtack fa-fw" title="Pinned"></i>
+								</div>
+								<span>&nbsp;</span>
+							</div>
+							<div class="status status-public">
+								<div class=status__info>
+									<div class="p-author h-card">
+										<a class="status__display-name u-url" rel="noopener noreferrer" href=https://mastodon.online/@ethanmcbloxxer>
+											<div class=status__avatar>
+												<div>
+													<img alt class="u-photo account__avatar" src="{{ page.avatar.path }}">
+												</div>
+											</div>
+											<span class=display-name>
+												<bdi>
+													<strong class="display-name__html p-name">{{ page.author.name }}</strong>
+												</bdi>
+												<span class=display-name__account>@{{ page.author.handle }}@{{ site.host }}</span>
+											</span>
+										</a>
+									</div>
+								</div>
+								<div class="status__content">
+									<div class=e-content>
+										{% if page.truncate %}
+											{% assign truncate = page.truncate %}
+											{{ content | truncatewords: truncate }}
+											{% assign truncate = nil %}
+										{% else %}
+											{{ content }}
+										{% endif %}
+										{% for tag in post.tags %}
+											<a href="{{ '/tags/' | append: "#" | append: tag | relative_url }}" style="color: #9baec8">#{{ tag }}</a>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endif %}
+						{% assign pinnedcontent = nil %}
+
+						{% for post in site.posts reversed %}
+						{% if post.author.handle == page.author.handle %}
+						<div class="entry h-entry">
+							<div class="status status-public">
+								<div class=status__info>
+									<a class="status__relative-time u-url u-uid" rel="noopener noreferrer" href="{{ post.url }}">
+										<time class=time-ago datetime="{{ post.date | date_to_xmlschema }}" title="{{ post.date | date: '%B %-d, %Y'}}">{{ post.date | date: '%b %-d, %Y'}}</time>
+									</a>
+									<data class=dt-published value=2021-02-23T18:57:11+00:00></data>
+									<div class="p-author h-card">
+										<span class="status__display-name u-url">
+											<div class=status__avatar>
+												<div>
+													<img alt class="u-photo account__avatar" src="{{ page.avatar.path }}">
+												</div>
+											</div>
+											<span class=display-name>
+												<a href="{{ post.url }}" style="text-decoration: none;">
+													<bdi>
+														<strong class="display-name__html p-name">{{ page.author.name }}</strong>
+													</bdi>
+												</a>
+												<span class=display-name__account>@{{ page.author.handle }}@{{ site.host }}</span>
+											</span>
+										</span>
+									</div>
+								</div>
+								<div class="status__content">
+									<div class=e-content>
+										{% if post.truncate %}
+											{% assign truncate = page.truncate %}
+											{{ post.content | truncatewords: truncate }}
+											{% assign truncate = nil %}
+										{% else %}
+											{{ post.content }}
+										{% endif %}
+										{% for tag in post.tags %}
+											<a href="{{ '/tags/' | append: "#" | append: tag | relative_url }}" style="color: #9baec8">#{{ tag }}</a>
+										{% endfor %}
+										{% if post.media %}
+										<div data-component="MediaGallery">
+											<div class="media-gallery" style="height: 30rem;">
+												<div class="media-gallery__item standalone" style="inset: auto; width: 100%; height: 100%;">
+													<canvas class="media-gallery__preview media-gallery__preview--hidden" width="32" height="32"></canvas>
+													<a class="media-gallery__item-thumbnail" href="{{ post.media }}" target="_blank" rel="noopener noreferrer">
+														<img src="{{ post.media }}" style="object-position: 50% 50%;">
+													</a>
+												</div>
+											</div>
+										</div>
+										{% endif %}
+									</div>
+								</div>
+								<div class=status__action-bar>
+									<a class="status__action-bar-button icon-button modal-button" href="{{ post.url | append: '#comments' }}" title="Reply" aria-label="Reply"><i class="fa fa-reply fa-fw"></i></a>
+									<a class="status__action-bar-button icon-button modal-button" href="{{ post.url }}" title="Permanent Link" aria-label="Bookmark"><i class="fa fa-bookmark fa-fw"></i></a>
+								</div>
+							</div>
+						</div>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</data>
+			</div>
+		</div>
+		<div class=column-1>
+			<div class=public-account-bio>
+				<div class="account__header__fields">
+					{% for table in page.fields %}<dl>
+						<dt>{{ table.name | markdownify }}</dt>
+						<dd title="{{- table.content | markdownify | strip_html -}}">
+							{{ table.content | markdownify }}
+						</dd>
+					</dl>{% endfor %}
+				</div>
+				{% if page.role or page.admin or page.moderator %}<div class="roles">
+					{% if page.admin %}<div class="account-role admin">Admin</div>{% endif %}
+					{% if page.moderator %}<div class="account-role moderator">Moderator</div>{% endif %}
+					{% if page.role %}<div class="account-role">{{ page.role }}</div>{% endif %}
+				</div>{% endif %}
+				<div class="account__header__content">
+					{{ page.bio | markdownify | smartify }}
+				</div>
+				<div class=public-account-bio__extra>
+					Last generated {{ "now" | date: "%B %e, %Y" }}
+				</div>
+			</div>
+			<div class=hero-widget>
+				<div class=hero-widget__img>
+					<img src="{{ '/assets/hero.png' | relative_url }}" alt="Mastodon in Rio">
+				</div>
+				<div class=hero-widget__text>
+					<p>This website uses <a href=https://github.com/EthanMcBloxxer/jekyll-theme-mastodon/>jekyll-theme-mastodon</a>, a Jekyll theme created by EthanMcBloxxer using the <a href=https://github.com/tootsuite/mastodon>Mastodon source code</a> and the <a href=https://mastodon.online/>official public instance's HTML.</a>
+						<ul>
+							Versions
+							<li>Jekyll {{ jekyll.version }}</li>
+							{% if site.github %}
+							<li>Ruby {{ page.github.versions.ruby }}</li>
+							<li>GitHub Pages {{ page.github.versions.github-pages }}</li>
+							<li>Liquid {{ page.github.versions.liquid }}</li>
+							<li>kramdown {{ page.github.versions.kramdown }}</li>
+							{% endif %}
+						</ul>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if site.amplitude %}
+		{% assign key = site.amplitude %}
+		{% include analytics.html key=key %}
+		<script type="text/javascript">
+			amplitude.getInstance().logEvent("Profile View", {handle: "{{ page.author.handle }}"});
+		</script>
+		{% assign key = nil %}
+	{% endif %}
+</div>
