@@ -43,7 +43,7 @@ defaults:
 manifest: false # a manifest.webmanifest file for Google devices (please specify URL if it exists)
 browserconfig: false # a browserconfig.xml file for Microsoft devices (please specify URL if it exists)
 
-#amplitude: "AmplitudeIsTheSuperiorAnalytics4" # Amplitude Analytics https://amplitude.com/get-started
+amplitude: "4148a0961d085ef4aa4646d0c86297d1" # Amplitude Analytics https://amplitude.com/get-started
 
 # Theme Config
 remote_theme: EthanMcBloxxer/jekyll-theme-mastodon@main
