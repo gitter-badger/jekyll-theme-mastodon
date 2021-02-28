@@ -9,7 +9,7 @@ layout: default
 				<div class="p-author h-card">
 					<span class="detailed-status__display-name u-url" rel="noopener">
 						<div class="detailed-status__display-avatar">
-							<img alt="Avatar Icon" class="account__avatar u-photo" src="{{ page.avatar.path }}" title="" style="">
+							<img alt="Avatar Icon" class="account__avatar u-photo" src="{{ page.avatar.path | relative_url }}" title="" style="">
 						</div>
 						<span class="display-name">
 							<bdi>
@@ -32,8 +32,8 @@ layout: default
 					<div class="media-gallery" style="height: 30rem;">
 						<div class="media-gallery__item standalone" style="inset: auto; width: 100%; height: 100%;">
 							<canvas class="media-gallery__preview media-gallery__preview--hidden" width="32" height="32"></canvas>
-							<a class="media-gallery__item-thumbnail" href="{{ page.media }}" target="_blank" rel="noopener noreferrer">
-								<img src="{{ page.media }}" style="object-position: 50% 50%;">
+							<a class="media-gallery__item-thumbnail" href="{{ page.media | relative_url }}" target="_blank" rel="noopener noreferrer">
+								<img src="{{ page.media | relative_url }}" style="object-position: 50% 50%;">
 							</a>
 						</div>
 					</div>
