@@ -1,0 +1,54 @@
+# Don't use tabs unless they become spaces!
+url: "https://ethanmcbloxxer.github.io/jekyll-theme-mastodon"
+baseurl: "/jekyll-theme-mastodon"
+
+defaults:
+  - # set each file in _posts to a post
+    scope:
+      path: "_posts"
+    values:
+       layout: "post"
+  - # make the link prefixed with /toot/ for each post
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      permalink: /toot/:title/
+  - # edit `values:` for default front matter values on all pages (do this if you want 1 account)
+    scope:
+      path: ""
+    values:
+      bio:
+        "My bio  \n
+        This is a new line"
+      fields: # a table of info about the bio, like for other links
+        -
+          name: "Homepage"
+          content: "[this content will not wrap, see](https://ethanmcbloxxer.github.io/)"
+        -
+          name: "this"
+          content: "supports markdown"
+      author:
+        name: Some Author # your name
+        handle: "admin" # handle to be shown aside name, ends in @website.name
+        url: "/" # your profile page file
+        email: "name@hosting.email" # real email
+      avatar:
+        path: "/assets/avatar.png" # primary avatar
+        circle: false # is the avatar a circle?
+      banner: "/assets/banner.png" # background banner
+      role: Custom Role
+
+# Files
+manifest: false # a manifest.webmanifest file for Google devices (please specify URL if it exists)
+browserconfig: false # a browserconfig.xml file for Microsoft devices (please specify URL if it exists)
+
+amplitude: "4148a0961d085ef4aa4646d0c86297d1" # Amplitude Analytics https://amplitude.com/get-started
+
+# Theme Config
+remote_theme: EthanMcBloxxer/jekyll-theme-mastodon@main
+plugins:
+  - jekyll-remote-theme
+
+# Jekyll Settings
+locale: "en-us" # find your locale with `navigator.language` in the console
