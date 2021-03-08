@@ -8,7 +8,7 @@ A Jekyll theme built off of Mastodon, the open-source social media platform. Wit
 ## Installing
 Installation is very easy and simple. All you need to do is go into the `remote` branch and
 
-1. download the directory (or [fork it](https://github.com/EthanMcBloxxer/jekyll-theme-mastodon/fork))
+1. [download](https://github.com/EthanMcBloxxer/jekyll-theme-mastodon/archive/remote.zip) the directory (or [fork it](https://github.com/EthanMcBloxxer/jekyll-theme-mastodon/fork))
 2. put the files in a new repository
 
 Be sure to name your repo "`<username>.github.io`". If you don't, your Mastodon instance will be available at `<username>.github.io/<repository-name>`. If you already have a default GitHub Pages profile page, then I encourage naming the repository "social" or "mastodon" so that the repo will be available at `<username>.github.io/social` or `<username>.github.io/mastodon`. The theme is configured to use relative urls, meaning you can specify `/` and it will convert it to a url relative to the page (`/`, `social`, `mastodon`, etc.)
