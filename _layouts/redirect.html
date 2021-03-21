@@ -1,0 +1,18 @@
+---
+---
+
+{% if page.redirect %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script>document.location.href = "{{ page.redirect }}";</script>
+		<meta http-equiv="Refresh" content="0; url='{{ page.redirect }}'">
+		<title>Redirecting...</title>
+	</head>
+	<body>
+		<h1>this page has been moved to <a href="{{ page.redirect }}">{{ page.redirect }}</h1>
+		<script>document.location.href = "{{ page.redirect }}";</script>
+	</body>
+</html>
+{% endif %}
