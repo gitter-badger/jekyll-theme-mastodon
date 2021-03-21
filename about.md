@@ -1,6 +1,7 @@
 ---
 layout: about
 title: About
+permalink: /about/
 ---
 
 This is a formatted markdown file.  
@@ -9,7 +10,8 @@ Inside the front matter is the main "About" heading:
 ```markdown
 ---
 layout: about
-title: about
+title: About
+permalink: /about/
 ---
 
 ## This is a formatted markdown file.

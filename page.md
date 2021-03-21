@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Example Page
-permalink: page/
+permalink: /page/
 ---
 
 page using `layout: page`
